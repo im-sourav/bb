@@ -1,0 +1,119 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  touch-action: none;
+  cursor: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: rgb(40, 42, 56);
+}
+canvas {
+  border-radius: 5px;
+  border: solid 3px #00ff00;
+  border-bottom: solid 3px #f00;
+}
+#home, #rs-window{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(40, 42, 56, 1);
+  cursor: auto;
+  z-index: -10;
+  opacity: 0;
+  transition: linear 0.3s all;
+}
+#home.active, #rs-window.active{
+  opacity: 1;
+  transition: linear 0.3s all;
+  z-index: 10;
+}
+#home #start-box {
+  width: 200px;
+  height: 80px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #ff9000;
+  border-radius: 10px;
+  border-bottom: 4px solid #f94000;
+  box-shadow: 0 0 5px #000;
+  cursor: pointer;
+}
+#home #start-box #start {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 900;
+  text-shadow: 0 0 2px #000;
+  transition: linear 0.1s;
+  cursor: pointer;
+}
+#home #start-box:hover #start {
+  font-size: 1.8rem;
+}
+#rs-window {
+  background: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(3px);
+}
+#rs-window #restart {
+  position: relative;
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #000;
+  overflow: hidden;
+  display: grid;
+  background: #fff;
+  backdrop-filter: blur(3px);
+  grid-template-rows: 10fr 20fr;
+  place-items: center;
+  cursor: auto;
+}
+#rs-window #restart p {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  color: #000;
+  font-weight: 900;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  cursor: auto;
+}
+#rs-window #restart p #score {
+  margin-left: 5px;
+  color: #0000ff;
+  cursor: auto;
+}
+#rs-window #restart #rs-button {
+  width: 70%;
+  height: 50%;
+  display: flex;
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+  background: #ff9000;
+  box-shadow: 0 3px 5px #000;
+  border-radius: 10px;
+  border-bottom: solid 4px #f94000;
+  font-weight: 900;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: linear 0.1s;
+}
+#rs-window #restart #rs-button:hover {
+  font-size: 1.1rem;
+}
