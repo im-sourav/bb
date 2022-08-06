@@ -3,6 +3,7 @@ const homeWindow = ID("home");
 const rsWindow = ID("rs-window");
 const scoreGame = ID("score");
 const rsButton = ID("rs-button");
+const touchFild = ID("touch-fild");
 
 const FPS = 60;
 const WIDTH = winw * SCALE;
@@ -456,13 +457,14 @@ function animation() {
 
 
 const move = (x) => {
-  ;
-  let det = map(x, 0, winw, 0, WIDTH - PAD_W);
-  pad.tx = det;
+  if (x <= WIDTH - PAD_W && x >= 0) {
+    pad.tx = x;
+    padCollision();
+  }
 }
 
-cvs.addEventListener("touchmove", (e) => move(e.touches[0].clientX));
-cvs.addEventListener("mousemove", (e) => move(e.offsetX));
+touchFild.addEventListener("touchmove", (e) => move(e.touches[0].clientX * 6));
+touchFild.addEventListener("mousemove", (e) => move(e.offsetX * 4));
 
 
 function loop() {
